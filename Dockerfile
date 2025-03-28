@@ -4,7 +4,7 @@ FROM php:8.2-fpm
 # Set the working directory
 WORKDIR /var/www
 
-# Install system dependencies including SQLite and required PHP extensions
+# Install system dependencies including SQLite development libraries and required PHP extensions
 RUN apt-get update && apt-get install -y \
     build-essential \
     libpng-dev \
@@ -12,6 +12,7 @@ RUN apt-get update && apt-get install -y \
     libfreetype6-dev \
     libonig-dev \
     libxml2-dev \
+    libsqlite3-dev \
     zip \
     unzip \
     git \
