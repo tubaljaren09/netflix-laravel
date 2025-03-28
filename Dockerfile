@@ -27,9 +27,11 @@ COPY --from=composer:latest /usr/bin/composer /usr/bin/composer
 # Copy your Laravel application into the container
 COPY . /var/www
 
+# Install Composer dependencies
+RUN composer install --no-dev --optimize-autoloader
+
 # Set correct permissions for Laravel storage and cache directories
-RUN chown -R www-data:www-data /var/www && \
-    chmod -R 755 /var/www/storage
+RUN chown -R www-data:www-data /var/www && chmod -R 755 /var/www/storage
 
 # Expose port 80 (HTTP)
 EXPOSE 80
