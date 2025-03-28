@@ -44,4 +44,4 @@ RUN chown -R www-data:www-data /var/www && \
 EXPOSE 80
 
 # Start Laravel's built-in server using the dynamic port from Render
-CMD ["sh", "-c", "php artisan serve --host 0.0.0.0 --port ${PORT:-80}"]
+CMD ["sh", "-c", "php artisan migrate --force && php artisan serve --host 0.0.0.0 --port ${PORT:-80}"]
