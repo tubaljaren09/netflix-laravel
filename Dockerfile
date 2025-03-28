@@ -33,9 +33,6 @@ COPY . /var/www
 RUN mkdir -p /var/www/database && \
     touch /var/www/database/database.sqlite
 
-# Declare the directory as a persistent volume for data storage
-VOLUME ["/var/www/database"]
-
 # Install Composer dependencies
 RUN composer install --no-dev --optimize-autoloader
 
